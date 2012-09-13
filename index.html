@@ -166,9 +166,15 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(function () {
-		$('#nav a:first').tab('show');
-	})
+	// http://stackoverflow.com/a/10120221/38729
+	$(document).ready(function() {
+		// to prevent browser in scrolling to element, we use #why in url, but #tab_why in code and id's
+		if (location.hash !== '') $('a[href="' + '#tab_' + location.hash.substr(1) + '"]').tab('show');
+
+		$('a[data-toggle="tab"]').on('shown', function(e) {
+			return location.hash = $(e.target).attr('href').replace('#tab_','');
+		});
+	});
 </script>
 <!-- ga -->
 <script type="text/javascript">
