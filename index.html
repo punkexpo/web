@@ -169,10 +169,11 @@
 	// http://stackoverflow.com/a/10120221/38729
 	$(document).ready(function() {
 		// to prevent browser in scrolling to element, we use #why in url, but #tab_why in code and id's
-		if (location.hash !== '') $('a[href="' + '#tab_' + location.hash.substr(1) + '"]').tab('show');
+		var $activeTab = location.hash ? $('a[href="' + '#tab_' + location.hash.substr(1) + '"]') : $('#nav a:first');
+		$activeTab.tab('show');
 
 		$('a[data-toggle="tab"]').on('shown', function(e) {
-			return location.hash = $(e.target).attr('href').replace('#tab_','');
+			location.hash = $(e.target).attr('href').replace('#tab_','');
 		});
 	});
 </script>
