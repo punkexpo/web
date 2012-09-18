@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google Analytics Content Experiment code -->
+	<script>function utmx_section(){}function utmx(){}(function(){var
+			k='64013746-0',d=document,l=d.location,c=d.cookie;
+		if(l.search.indexOf('utm_expid='+k)>0)return;
+		function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+				indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+				length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+				'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+						'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+						'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+						valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+						'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+	</script><script>utmx('url','A/B');</script>
+	<!-- End of Google Analytics Content Experiment code -->
+
 	<meta charset="utf-8">
 	<title>#pubexpo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -125,6 +140,14 @@
 			}
 		}
 
+		/* a/b: */
+		.ab .ab-variant {
+			display: none;
+		}
+
+		.ab .ab-variant-default {
+			display: block;
+		}
 	</style>
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -152,15 +175,21 @@
 			<h1>Nejdete na páteční <a href="http://webexpo.cz" target="_blank">WebExpo</a>&nbsp;raut?</h1>
 
 			<p>Přijďte rozebrat páteční přednášky nebo pokecat o tom, co v nich chybělo <a
-					onclick="clicky && clicky.goal( 'Went to srazy.info - link' ); clicky && clicky.pause( 400 );" href="http://srazy.info/pubexpo/2673" target="_blank"><strong>v&nbsp;pátek v&nbsp;17:00 do&nbsp;restaurace&nbsp;Kopyto</strong></a>.
+					onclick="goalReached('Went to srazy.info - link');" href="http://srazy.info/pubexpo/2673" target="_blank"><strong>v&nbsp;pátek v&nbsp;17:00 do&nbsp;restaurace&nbsp;Kopyto</strong></a>.
 			</p>
 
-			<p><a onclick="clicky && clicky.goal( 'Went to srazy.info - button' ); clicky && clicky.pause( 400 );" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank">Klikni a přihlaš se na srazy.info</a></p>
+			<div class="ab ab-variant-cta">
+				<p class="ab-variant ab-variant-default"><a onclick="goalReached('Went to srazy.info - button');" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank">Klikni a přihlaš se na srazy.info</a></p>
+				<p class="ab-variant ab-variant-cta-prihlas"><a onclick="goalReached('Went to srazy.info - button');" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank"><b>Přihlaš se na srazy.info</b></a></p>
+				<p class="ab-variant ab-variant-cta-nezapomen"><a onclick="goalReached('Went to srazy.info - button');" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank"><b>Nezapomeň se přihlásit na srazy.info!</b></a></p>
+				<p class="ab-variant ab-variant-cta-gangamkocka"><a onclick="goalReached('Went to srazy.info - button');" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank"><b>Gangam style kočka? No ty koki!</b></a></p>
+				<p class="ab-variant ab-variant-cta-klikni"><a onclick="goalReached('Went to srazy.info - button');" class="btn btn-primary btn-large" href="http://srazy.info/pubexpo/2673" target="_blank"><b>Klikni!</b></a></p>
+			</div>
 		</div>
 		<p>
-			<a onclick="clicky && clicky.goal( 'Clicked map image' ); clicky && clicky.pause( 400 );" href="https://maps.google.cz/maps?ie=UTF8&cid=3970169120538451489&q=Restaurace+Kopyto&iwloc=A&gl=CZ&hl=cs"
+			<a onclick="goalReached('Clicked map image');" href="https://maps.google.cz/maps?ie=UTF8&cid=3970169120538451489&q=Restaurace+Kopyto&iwloc=A&gl=CZ&hl=cs"
 			   id="map"></a>
-			<a onclick="clicky && clicky.goal( 'Clicked map link' ); clicky && clicky.pause( 400 );" href="https://maps.google.cz/maps?ie=UTF8&cid=3970169120538451489&q=Restaurace+Kopyto&iwloc=A&gl=CZ&hl=cs">Salonek
+			<a onclick="goalReached('Clicked map link');" href="https://maps.google.cz/maps?ie=UTF8&cid=3970169120538451489&q=Restaurace+Kopyto&iwloc=A&gl=CZ&hl=cs">Salonek
 				Restaurace Kopyto, Bořivojova 883</a>
 		</p>
 
@@ -220,14 +249,15 @@
 		</div>
 	</div>
 	<footer>
-		<p>Vyrobeno ve spěchu <a onclick="clicky && clicky.goal( 'Clicked twitter - keff85' ); clicky && clicky.pause( 400 );" href="http://twitter.com/keff85" target="_blank">@keff85</a> a <a
-				onclick="clicky && clicky.goal( 'Clicked twitter - cataluc' ); clicky && clicky.pause( 400 );" href="http://twitter.com/cataluc" target="_blank">@cataluc</a></p>
+		<p>Vyrobeno ve spěchu <a onclick="goalReached('Clicked twitter - keff85');" href="http://twitter.com/keff85" target="_blank">@keff85</a> a <a
+				onclick="goalReached('Clicked twitter - cataluc');" href="http://twitter.com/cataluc" target="_blank">@cataluc</a></p>
 	</footer>
 
 </div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/jquery-1.8.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/uri.js"></script>
 <script type="text/javascript">
 	// http://stackoverflow.com/a/10120221/38729
 	$(document).ready(function () {
@@ -272,6 +302,49 @@
 	})();
 </script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66641341ns.gif"/></p></noscript>
+
+<!-- tracking -->
+<script type="text/javascript">
+	function goalReached(goalName) {
+		if (typeof _trackEvent == 'function') {
+			var category = 'click',
+				action = goalName;
+			_trackEvent(category, action /*, opt_label, opt_value, opt_noninteraction*/);
+		}
+		if (typeof clicky != 'undefined' && typeof clicky.goal == 'function') {
+			clicky.goal(goalName);
+			clicky.pause( 400 );
+		}
+	}
+</script>
+
+<!-- a/b -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		var uri = URI(window.location.href),
+			uriSearch = uri.search(true);
+		for (var key in uriSearch) {
+			if (!uriSearch.hasOwnProperty(key)) { continue; }
+
+			var matches = key.match(/^ab-([a-zA-Z0-9].+)/);
+			if (!matches) { continue; }
+
+			var testName = matches[1],
+				testVariant = uriSearch[key];
+
+			var container = $('.ab.ab-variant-' + testName),
+				variants = container.find('.ab-variant'),
+				displayedVariant = variants.filter('.ab-variant-' + testName + '-' + testVariant),
+				hiddenVariants = variants.not('.ab-variant-' + testName + '-' + testVariant);
+
+			if (displayedVariant.length) {
+				hiddenVariants.hide();
+				displayedVariant.show();
+			}
+		}
+	});
+</script>
+
 
 </body>
 </html>
