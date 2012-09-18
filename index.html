@@ -310,10 +310,10 @@
 <!-- tracking -->
 <script type="text/javascript">
 	function goalReached(goalName) {
-		if (typeof _trackEvent == 'function') {
+		if (typeof _gaq == 'object' && typeof _gaq.push == 'function') {
 			var category = 'click',
 				action = goalName;
-			_trackEvent(category, action /*, opt_label, opt_value, opt_noninteraction*/);
+			_gaq.push(['_trackEvent', category, action /*, opt_label, opt_value, opt_noninteraction*/]);
 		}
 		if (typeof clicky != 'undefined' && typeof clicky.goal == 'function') {
 			clicky.goal(goalName);
